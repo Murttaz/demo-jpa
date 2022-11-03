@@ -19,14 +19,13 @@ public class ConnexionJpa {
 		if (re !=null) {
 			System.out.println(re);
 		}
-		transaction.commit();
+	
 		
-		transaction.begin();
 		
 		Region r=new Region();
-		r.setId(3);
+	
 		r.setNom("Hauts de France");
-		em.merge(r);
+		em.persist(r);
 		System.out.println(r);
 		
 		
