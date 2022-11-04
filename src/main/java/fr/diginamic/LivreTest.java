@@ -18,8 +18,23 @@ public class LivreTest {
 		Livre book=em.find(Livre.class,2);
 		if (book !=null) {
 			System.out.println(book);
+			for (Emprunt emp: book.getEmprunts1()) {
+				System.out.println(emp);
+			}
 		}
 		
+		
+		
+		Client customer= new Client();
+		customer.setNom("Lamborghini");
+		customer.setPrenom("Ferucio");
+		Adresse a=new Adresse();
+		a.setLibelleVoie("8 rue de sicile");
+		a.setCodePostal(29000);
+		a.setVille("Quimper");
+		customer.setAdresse(a);
+		em.persist(customer);
+		transaction.commit();
 
 	}
 
